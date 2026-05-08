@@ -56,10 +56,11 @@ def edit_student_submit(request, student_pk):
     student = Student.objects.get(pk=student_pk)
     context['student'] = student
     if request.method == 'POST':
-        form = StudentForm(request.POST, instance=student)
+        form = StudentForm(request.POST, request.FILES, instance=student)  # add request.FILES
         if form.is_valid():
             form.save()
         else:
+            context['form'] = form
             return render(request, 'partial/student/edit_student.html', context)
     return render(request, 'partial/student/student_row.html', context)
 

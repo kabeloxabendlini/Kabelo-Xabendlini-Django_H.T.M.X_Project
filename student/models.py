@@ -2,12 +2,12 @@ from django.db import models
 
 # Create your models here.
 class Student(models.Model):
-    first_name = models.CharField(max_length = 50)
-    last_name = models.CharField(max_length = 50)
-    gender = models.CharField(max_length = 10)
-    age = models.DecimalField(max_digits = 7, decimal_places = 0)
-    major = models.CharField(max_length = 50)
-    profile_image = models.FileField(null=True, blank=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    gender = models.CharField(max_length=10)
+    age = models.DecimalField(max_digits=7, decimal_places=0)
+    major = models.CharField(max_length=50)
+    profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
 
 # call manually
 def load_students():
